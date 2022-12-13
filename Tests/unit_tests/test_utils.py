@@ -45,3 +45,35 @@ class BmiCalculatorTest(TestCase):
         bmi, bmi_means = bmi_calculator(height, weight)
         self.assertEqual(bmi, 25.95)
         self.assertEqual(bmi_means, '過重') 
+        
+    def test_bmi_result_overweight(self):
+        """Tests bmi result."""
+        height = 1.7
+        weight = 85
+        bmi, bmi_means = bmi_calculator(height, weight)
+        self.assertEqual(bmi, 29.41)
+        self.assertEqual(bmi_means, '輕度肥胖')
+
+    def test_bmi_result_obese(self):
+        """Tests bmi result."""
+        height = 1.7
+        weight = 95
+        bmi, bmi_means = bmi_calculator(height, weight)
+        self.assertEqual(bmi, 32.88)
+        self.assertEqual(bmi_means, '中度肥胖')
+
+    def test_bmi_result_extremely_obese(self):
+        """Tests bmi result."""
+        height = 1.7
+        weight = 105
+        bmi, bmi_means = bmi_calculator(height, weight)
+        self.assertEqual(bmi, 36.35)
+        self.assertEqual(bmi_means, '重度肥胖')
+
+    def test_bmi_result_underweight(self):
+        """Tests bmi result."""
+        height = 1.7
+        weight = 45
+        bmi, bmi_means = bmi_calculator(height, weight)
+        self.assertEqual(bmi, 15.53)
+        self.assertEqual(bmi_means, '過輕')
